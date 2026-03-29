@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="console-page">
+    <div class="terminals-wrapper">
+
+        <!-- LEFT: BROWSER SHELL -->
+        <div class="console-window" style="flex: 0 0 340px;">
+            <div class="console-titlebar">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="console-label">nu — julius@localhost</span>
+            </div>
+            <div class="console-body">
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> w3m julius.dev/contact</span></p>
+                    <div class="output-block">
+                        <p class="line output dim">Connecting to julius.dev...</p>
+                        <p class="line output dim">Resolving host... <span class="ok">OK</span></p>
+                        <p class="line output dim">Fetching /contact... <span class="ok">200 OK</span></p>
+                        <p class="line output dim">Rendering page...</p>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> nav</span></p>
+                    <div class="output-block">
+                        <table class="nu-table">
+                            <thead><tr><th>#</th><th>page</th><th>url</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="nu-idx">0</td>
+                                    <td><a href="/" class="nu-link">Home</a></td>
+                                    <td class="nu-path-cell">/</td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">1</td>
+                                    <td><a href="/about" class="nu-link">About</a></td>
+                                    <td class="nu-path-cell">/about</td>
+                                </tr>
+                                <tr class="active-row">
+                                    <td class="nu-idx">2</td>
+                                    <td><a href="/projects" class="nu-link">Projects</a></td>
+                                    <td class="nu-path-cell">/projects</td>
+                                </tr>
+                                <tr class="active-row">
+                                    <td class="nu-idx">3</td>
+                                    <td><a href="/contact" class="nu-link active-link">Contact</a></td>
+                                    <td class="nu-path-cell">/contact</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cursor">█</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT: BROWSER VIEWPORT -->
+        <div class="console-window">
+            <div class="browser-chrome">
+                <div class="browser-toolbar">
+                    <span class="browser-btn">←</span>
+                    <span class="browser-btn">→</span>
+                    <span class="browser-btn">↺</span>
+                    <div class="browser-urlbar">
+                        <span class="url-scheme">https://</span><span class="url-host">julius.dev</span><span class="url-path">/contact</span>
+                    </div>
+                    <span class="browser-status-dot ok-dot" title="200 OK"></span>
+                </div>
+                <div class="browser-tabs">
+                    <span class="tab active-tab">julius.dev/contact</span>
+                    <span class="tab">julius.dev/about</span>
+                    <span class="tab-new">+</span>
+                </div>
+            </div>
+
+            <div class="browser-body">
+                <div class="lynx-page">
+
+                    <div class="lynx-header">
+                        <p class="lynx-banner">JULIUS.DEV — Terminal Browser v1.0 — [contact]</p>
+                        <div class="lynx-sep">════════════════════════════════════════════════════════</div>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h1">[ Contact Me ]</p>
+                        <p class="lynx-body">Send me a message using the form below. I'll get back to you as soon as possible.</p>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h2">[ Direct Channels ]</p>
+                        <table class="nu-table">
+                            <thead><tr><th>#</th><th>channel</th><th>address</th></tr></thead>
+                            <tbody>
+                                <tr><td class="nu-idx">0</td><td class="nu-file">email</td><td class="lynx-link-cell"><a href="mailto:julius.jr.jovia@gmail.com" class="lynx-link">julius.jr.jovia@gmail.com</a></td></tr>
+                                <tr><td class="nu-idx">1</td><td class="nu-file">github</td><td class="lynx-link-cell"><a href="https://github.com/E1480" class="lynx-link">github.com/E1480</a></td></tr>
+                                <tr><td class="nu-idx">2</td><td class="nu-file">linkedin</td><td class="lynx-link-cell"><a href="https://www.linkedin.com/in/julius-jr-jovia-1aa494369" class="lynx-link">linkedin.com/in/julius</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h2">[ Send a Message ]</p>
+                        <p class="lynx-dim">Fields marked with * are required.</p>
+
+                        <form class="lynx-form" method="POST" action="/contact">
+                            <div class="form-row">
+                                <label class="form-label">Name *</label>
+                                <input class="form-input" type="text" name="name" placeholder="your name" required />
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Email *</label>
+                                <input class="form-input" type="email" name="email" placeholder="you@example.com" required />
+                            </div>
+                            <div class="form-row">
+                                <label class="form-label">Subject</label>
+                                <input class="form-input" type="text" name="subject" placeholder="what's this about?" />
+                            </div>
+                            <div class="form-row form-row-tall">
+                                <label class="form-label">Message *</label>
+                                <textarea class="form-input form-textarea" name="message" placeholder="write your message here..." required></textarea>
+                            </div>
+                            <div class="form-row form-row-submit">
+                                <span class="form-label"></span>
+                                <button class="form-submit" type="submit">
+                                    <span class="nu-arrow">〉</span> send message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="lynx-sep">════════════════════════════════════════════════════════</div>
+                    <p class="lynx-footer">julius.dev — rendered by w3m/0.5.3 — press [q] to quit</p>
+
+                </div>
+            </div>
+
+            <div class="browser-statusbar">
+                <span class="status-left">julius.dev/contact</span>
+                <span class="status-mid">200 OK — text/html</span>
+                <span class="status-right">w3m 0.5.3</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

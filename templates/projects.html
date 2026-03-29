@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<div class="console-page">
+    <div class="terminals-wrapper">
+
+        <!-- LEFT: SHELL -->
+        <div class="console-window" style="flex: 0 0 340px;">
+            <div class="console-titlebar">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="console-label">nu — julius@localhost</span>
+            </div>
+            <div class="console-body">
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> w3m julius.dev/projects</span></p>
+                    <div class="output-block">
+                        <p class="line output dim">Connecting to julius.dev...</p>
+                        <p class="line output dim">Resolving host... <span class="ok">OK</span></p>
+                        <p class="line output dim">Fetching /projects... <span class="ok">200 OK</span></p>
+                        <p class="line output dim">Rendering page...</p>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> nav</span></p>
+                    <div class="output-block">
+                        <table class="nu-table">
+                            <thead><tr><th>#</th><th>page</th><th>url</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="nu-idx">0</td>
+                                    <td><a href="/" class="nu-link">Home</a></td>
+                                    <td class="nu-path-cell">/</td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">1</td>
+                                    <td><a href="/about" class="nu-link">About</a></td>
+                                    <td class="nu-path-cell">/about</td>
+                                </tr>
+                                <tr class="active-row">
+                                    <td class="nu-idx">2</td>
+                                    <td><a href="/projects" class="nu-link active-link">Projects</a></td>
+                                    <td class="nu-path-cell">/projects</td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">3</td>
+                                    <td><a href="/contact" class="nu-link">Contact</a></td>
+                                    <td class="nu-path-cell">/contact</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> ls projects/</span></p>
+                    <div class="output-block">
+                        <table class="nu-table">
+                            <thead><tr><th>#</th><th>name</th><th>lang</th></tr></thead>
+                            <tbody>
+                                <tr><td class="nu-idx">0</td><td class="nu-dir">onrentwear/</td><td class="nu-type">PHP</td></tr>
+                                <tr><td class="nu-idx">1</td><td class="nu-dir">julius-dev/</td><td class="nu-type">Python</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cursor">█</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT: BROWSER VIEWPORT -->
+        <div class="console-window">
+            <div class="browser-chrome">
+                <div class="browser-toolbar">
+                    <span class="browser-btn">←</span>
+                    <span class="browser-btn">→</span>
+                    <span class="browser-btn">↺</span>
+                    <div class="browser-urlbar">
+                        <span class="url-scheme">https://</span><span class="url-host">julius.dev</span><span class="url-path">/projects</span>
+                    </div>
+                    <span class="browser-status-dot ok-dot" title="200 OK"></span>
+                </div>
+                <div class="browser-tabs">
+                    <span class="tab active-tab">julius.dev/projects</span>
+                    <span class="tab">julius.dev/about</span>
+                    <span class="tab-new">+</span>
+                </div>
+            </div>
+
+            <div class="browser-body">
+                <div class="lynx-page">
+
+                    <div class="lynx-header">
+                        <p class="lynx-banner">JULIUS.DEV — Terminal Browser v1.0 — [projects]</p>
+                        <div class="lynx-sep">════════════════════════════════════════════════════════</div>
+                    </div>
+
+                    <!-- ASCII art header -->
+                    <div class="lynx-section">
+                        <pre class="ascii-art">
+  ____  ____   ____      _ _____ ____ _____ ____
+ |  _ \|  _ \ / __ \    | | ____/ ___|_   _/ ___|
+ | |_) | |_) | |  | |_  | |  _|| |     | | \___ \
+ |  __/|  _ <| |__| | |_| | |__| |___  | |  ___) |
+ |_|   |_| \_\\____/ \___/|_____\____| |_| |____/
+                        </pre>
+                        <p class="lynx-body">A collection of things I've built. Source code available on GitHub.</p>
+                    </div>
+
+                    <div class="lynx-sep">────────────────────────────────────────────────────────</div>
+
+                    <!-- Project 1 -->
+                    <div class="lynx-section proj-card">
+                        <div class="proj-box">
+                            <p class="proj-box-title">[0] OnRentWear — Clothing Rental System</p>
+                            <p class="proj-box-sub">Patricia Styles · Capstone · 2025</p>
+                        </div>
+                        <p class="lynx-body">A full stack clothing rental platform built as a capstone project. Handles inventory, bookings, and customer management end-to-end.</p>
+                        <div class="proj-meta">
+                            <table class="nu-table" style="margin-top: 10px;">
+                                <thead><tr><th>key</th><th>value</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="nu-type">stack</td><td class="nu-file">PHP · MySQL · XAMPP · HTML/CSS</td></tr>
+                                    <tr><td class="nu-type">role</td><td class="nu-file">Full Stack Developer</td></tr>
+                                    <tr><td class="nu-type">year</td><td class="nu-date">2025</td></tr>
+                                    <tr><td class="nu-type">status</td><td><span class="nu-badge ok-badge">completed</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="proj-bullets">
+                            <p class="lynx-dim">  ● Backend: PHP + MySQL — database design and server-side logic</p>
+                            <p class="lynx-dim">  ● Frontend: client-facing rental UI built from scratch</p>
+                            <p class="lynx-dim">  ● Environment: local dev stack managed via XAMPP</p>
+                        </div>
+                        <!-- <p class="proj-links">
+                            [<a href="#" class="lynx-link">GitHub</a>]&nbsp;&nbsp;
+                            [<a href="#" class="lynx-link">Live Demo</a>]
+                        </p> -->
+                    </div>
+
+                    <div class="lynx-sep">────────────────────────────────────────────────────────</div>
+
+                    <!-- Project 2 -->
+                    <div class="lynx-section proj-card">
+                        <div class="proj-box">
+                            <p class="proj-box-title">[1] julius.dev — Personal Portfolio</p>
+                            <p class="proj-box-sub">This very site · Flask · 2025</p>
+                        </div>
+                        <p class="lynx-body">My personal portfolio site with a terminal / nushell aesthetic. Designed to feel like browsing the web from the command line.</p>
+                        <div class="proj-meta">
+                            <table class="nu-table" style="margin-top: 10px;">
+                                <thead><tr><th>key</th><th>value</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="nu-type">stack</td><td class="nu-file">Python · Flask · HTML/CSS · Jinja2</td></tr>
+                                    <tr><td class="nu-type">role</td><td class="nu-file">Developer</td></tr>
+                                    <tr><td class="nu-type">year</td><td class="nu-date">2025</td></tr>
+                                    <tr><td class="nu-type">status</td><td><span class="nu-badge warn-badge">in progress</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="proj-bullets">
+                            <p class="lynx-dim">  ● Nushell-inspired UI with Catppuccin Mocha color palette</p>
+                            <p class="lynx-dim">  ● Fake w3m browser chrome for the "surfing from terminal" effect</p>
+                            <p class="lynx-dim">  ● Deployed on Render free tier</p>
+                        </div>
+                        <p class="proj-links">
+                            [<a href="https://github.com/E1480" class="lynx-link">GitHub</a>]&nbsp;&nbsp;
+                            [<a href="/" class="lynx-link">You're here</a>]
+                        </p>
+                    </div>
+
+                    <div class="lynx-sep">════════════════════════════════════════════════════════</div>
+                    <p class="lynx-footer">julius.dev — rendered by w3m/0.5.3 — press [q] to quit</p>
+
+                </div>
+            </div>
+
+            <div class="browser-statusbar">
+                <span class="status-left">julius.dev/projects</span>
+                <span class="status-mid">200 OK — text/html</span>
+                <span class="status-right">w3m 0.5.3</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

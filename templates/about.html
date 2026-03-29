@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="console-page">
+    <div class="terminals-wrapper">
+
+        <!-- LEFT: BROWSER SHELL -->
+        <div class="console-window" style="flex: 0 0 340px;">
+            <div class="console-titlebar">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="console-label">nu — julius@localhost</span>
+            </div>
+            <div class="console-body">
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> w3m julius.dev/about</span></p>
+                    <div class="output-block">
+                        <p class="line output dim">Connecting to julius.dev...</p>
+                        <p class="line output dim">Resolving host... <span class="ok">OK</span></p>
+                        <p class="line output dim">Fetching /about... <span class="ok">200 OK</span></p>
+                        <p class="line output dim">Rendering page...</p>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> nav</span></p>
+                    <div class="output-block">
+                        <table class="nu-table">
+                            <thead><tr><th>#</th><th>page</th><th>url</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="nu-idx">0</td>
+                                    <td><a href="/" class="nu-link">Home</a></td>
+                                    <td class="nu-path-cell">/</td>
+                                </tr>
+                                <tr class="active-row">
+                                    <td class="nu-idx">1</td>
+                                    <td><a href="/about" class="nu-link active-link">About</a></td>
+                                    <td class="nu-path-cell">/about</td>
+                                </tr>
+                                    <tr class="active-row">
+                                    <td class="nu-idx">2</td>
+                                    <td><a href="/projects" class="nu-link">Projects</a></td>
+                                    <td class="nu-path-cell">/projects</td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">3</td>
+                                    <td><a href="/contact" class="nu-link">Contact</a></td>
+                                    <td class="nu-path-cell">/contact</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> ~</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cursor">█</span></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT: BROWSER VIEWPORT -->
+        <div class="console-window">
+            <!-- Browser chrome -->
+            <div class="browser-chrome">
+                <div class="browser-toolbar">
+                    <span class="browser-btn">←</span>
+                    <span class="browser-btn">→</span>
+                    <span class="browser-btn">↺</span>
+                    <div class="browser-urlbar">
+                        <span class="url-scheme">https://</span><span class="url-host">julius.dev</span><span class="url-path">/about</span>
+                    </div>
+                    <span class="browser-status-dot ok-dot" title="200 OK"></span>
+                </div>
+                <div class="browser-tabs">
+                    <span class="tab active-tab">julius.dev/about</span>
+                    <span class="tab">julius.dev/</span>
+                    <span class="tab-new">+</span>
+                </div>
+            </div>
+
+            <!-- Page content rendered "in browser" -->
+            <div class="browser-body">
+                <div class="lynx-page">
+
+                    <div class="lynx-header">
+                        <p class="lynx-banner">JULIUS.DEV — Terminal Browser v1.0 — [about]</p>
+                        <div class="lynx-sep">════════════════════════════════════════════════════════</div>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h1">[ About Me ]</p>
+                        <p class="lynx-body">Hi, I'm <span class="lynx-bold">Julius Jovia Jr.</span> — a developer who builds things for the most platforms. I like clean code, I don't do UIs, but I'm quite fond of back-end development.</p>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h2">[ Skills ]</p>
+                        <table class="nu-table">
+                            <thead><tr><th>#</th><th>skill</th><th>level</th><th>years</th></tr></thead>
+                            <tbody>
+                                <tr><td class="nu-idx">0</td><td class="nu-file">Python</td><td><span class="skill-bar" data-level="4">████░</span></td><td class="nu-date">3 yrs</td></tr>
+                                <tr><td class="nu-idx">1</td><td class="nu-file">Flask</td><td><span class="skill-bar" data-level="3">███░░</span></td><td class="nu-date">1 yrs</td></tr>
+                                <tr><td class="nu-idx">2</td><td class="nu-file">HTML/CSS</td><td><span class="skill-bar" data-level="1">█░░░░</span></td><td class="nu-date">4 yrs</td></tr>
+                                <!-- <tr><td class="nu-idx">3</td><td class="nu-file">JavaScript</td><td><span class="skill-bar" data-level="3">███░░</span></td><td class="nu-date">2 yrs</td></tr> -->
+                                <tr><td class="nu-idx">4</td><td class="nu-file">MySQL</td><td><span class="skill-bar" data-level="2">██░░░</span></td><td class="nu-date">1 yr</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h2">[ Experience ]</p>
+                        <div class="lynx-entry">
+                            <p class="lynx-entry-title">► Full Stack Developer (Capstone Project)<span class="lynx-dim"> OnRentWear - Patricai Styles   </span></p>
+                            <p class="lynx-entry-date">2025</p>
+                            <p class="lynx-body">Developed a full stack clothing rental system using PHP, XAMPP, and MySQL for both backend and frontend.</p>
+                            <p class="lynx-dim">  ● Built and maintained the full backend using PHP and MySQL, including database design and server-side logic</p>
+                            <p class="lynx-dim">  ● Designed and developed the frontend user interface for the client-facing rental platform</p>
+                            <p class="lynx-dim">  ● Set up and managed the local development environment using XAMPP</p>
+                        </div>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h2">[ Links ]</p>
+                        <p class="lynx-body">
+                            [<a href="https://github.com/E1480" class="lynx-link">GitHub</a>]&nbsp;&nbsp;
+                            [<a href="https://www.linkedin.com/in/julius-jr-jovia-1aa494369" class="lynx-link">LinkedIn</a>]&nbsp;&nbsp;
+                            [<a href="/contact" class="lynx-link">Contact Me</a>]
+                        </p>
+                    </div>
+
+                    <div class="lynx-section">
+                        <p class="lynx-h2">[ Credits ]</p>
+                        <table class="nu-table">
+                            <thead><tr><th>#</th><th>contributor</th><th>role</th><th>link</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td class="nu-idx">0</td>
+                                    <td class="nu-file">Julius Jovia Jr.</td>
+                                    <td class="nu-type">developer, author</td>
+                                    <td class="lynx-link-cell">julius.dev</td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">1</td>
+                                    <td class="nu-file">Claude (Anthropic)</td>
+                                    <td class="nu-type">UI design &amp; frontend</td>
+                                    <td class="lynx-link-cell"><a href="https://claude.ai" class="lynx-link">claude.ai</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">2</td>
+                                    <td class="nu-file">Nushell</td>
+                                    <td class="nu-type">design inspiration</td>
+                                    <td class="lynx-link-cell"><a href="https://nushell.sh" class="lynx-link">nushell.sh</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">3</td>
+                                    <td class="nu-file">Catppuccin</td>
+                                    <td class="nu-type">color palette</td>
+                                    <td class="lynx-link-cell"><a href="https://catppuccin.com" class="lynx-link">catppuccin.com</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">4</td>
+                                    <td class="nu-file">JetBrains Mono</td>
+                                    <td class="nu-type">typography</td>
+                                    <td class="lynx-link-cell"><a href="https://jetbrains.com/mono" class="lynx-link">jetbrains.com/mono</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="lynx-sep">════════════════════════════════════════════════════════</div>
+                    <p class="lynx-footer">julius.dev — rendered by w3m/0.5.3 — press [q] to quit</p>
+
+                </div>
+            </div>
+
+            <!-- Status bar -->
+            <div class="browser-statusbar">
+                <span class="status-left">julius.dev/about</span>
+                <span class="status-mid">200 OK — text/html</span>
+                <span class="status-right">w3m 0.5.3</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

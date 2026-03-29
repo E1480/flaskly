@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="console-page">
+    <div class="terminals-wrapper">
+
+        <!-- LEFT TERMINAL -->
+        <div class="console-window">
+            <div class="console-titlebar">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="console-label">nu — julius@localhost</span>
+            </div>
+
+            <div class="console-body">
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> /home/julius</span>
+                        <span class="nu-git"> (main)</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> whoami</span></p>
+                    <div class="output-block">
+                        <p class="line output">Julius Jovia Jr.</p>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> /home/julius</span>
+                        <span class="nu-git"> (main)</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> cat welcome.md</span></p>
+                    <div class="output-block">
+                        <p class="line output-title">Welcome I am Julius!</p>
+                        <p class="line output-sub">This is the home page.</p>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> /home/julius</span>
+                        <span class="nu-git"> (main)</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> ls</span></p>
+                    <div class="output-block">
+                        <table class="nu-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>name</th>
+                                    <th>type</th>
+                                    <th>size</th>
+                                    <th>modified</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="window.location.href = 'https://github.com/E1480/flaskly/blob/main/app.py'">
+                                    <td class="nu-idx">0</td>
+                                    <td class="nu-file">app.py</td>
+                                    <td class="nu-type">file</td>
+                                    <td class="nu-size">4.2 KB</td>
+                                    <td class="nu-date">2 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">1</td>
+                                    <td class="nu-dir">static/</td>
+                                    <td class="nu-type">dir</td>
+                                    <td class="nu-size">—</td>
+                                    <td class="nu-date">3 days ago</td>
+                                </tr>
+                                <tr>
+                                    <td class="nu-idx">2</td>
+                                    <td class="nu-dir">templates/</td>
+                                    <td class="nu-type">dir</td>
+                                    <td class="nu-size">—</td>
+                                    <td class="nu-date">3 days ago</td>
+                                </tr>
+                                    <tr onclick="window.location.href = 'https://github.com/E1480/flaskly/blob/main/requirements.txt'">
+                                    <td class="nu-idx">3</td>
+                                    <td class="nu-file">requirements.txt</td>
+                                    <td class="nu-type">file</td>
+                                    <td class="nu-size">312 B</td>
+                                    <td class="nu-date">5 days ago</td>
+                                </tr>
+                                <tr onclick="window.location.href = 'https://github.com/E1480/flaskly/blob/main/Procfile'">
+                                    <td class="nu-idx">4</td>
+                                    <td class="nu-file">Procfile</td>
+                                    <td class="nu-type">file</td>
+                                    <td class="nu-size">28 B</td>
+                                    <td class="nu-date">5 days ago</td>
+                                </tr>
+                                <tr onclick="window.location.href = 'https://github.com/E1480/flaskly/blob/main/uv.lock'">
+                                    <td class="nu-idx">5</td>
+                                    <td class="nu-file">uv.lock</td>
+                                    <td class="nu-type">file</td>
+                                    <td class="nu-size">1.1 KB</td>
+                                    <td class="nu-date">2 days ago</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> /home/julius</span>
+                        <span class="nu-git"> (main)</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉   
+                        <!-- </span><span class="cmd">exit</span> -->
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT TERMINAL -->
+        <div class="console-window">
+            <div class="console-titlebar">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="console-label">nu — julius@localhost ~/projects</span>
+            </div>
+
+            <div class="console-body">
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> /home/julius/projects</span>
+                        <span class="nu-git"> (main)</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span><span class="cmd"> nav</span></p>
+                    <div class="output-block">
+                        <p class="line output-sub">Try clicking these links:</p>
+                        <table class="nu-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>page</th>
+                                    <th>route</th>
+                                    <th>status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="window.location.href = '/'">
+                                    <td class="nu-idx">0</td>
+                                    <td class="nu-file"><a href="/" class="nu-link">Home</a></td>
+                                    <td class="nu-path-cell">/</td>
+                                    <td><span class="nu-badge ok-badge">active</span></td>
+                                </tr>
+                                    <tr onclick="window.location.href = '/about'">
+
+                                    <td class="nu-idx">1</td>
+                                    <td class="nu-file"><a href="/about" class="nu-link">About</a></td>
+                                    <td class="nu-path-cell">/about</td>
+                                    <td><span class="nu-badge">ready</span></td>
+                                </tr>
+                                <tr onclick="window.location.href = '/projects'">
+                                    <td class="nu-idx">2</td>
+                                    <td class="nu-file"><a href="/projects" class="nu-link">Projects</a></td>
+                                    <td class="nu-path-cell">/projects</td>
+                                    <td><span class="nu-badge">ready</span></td>
+                                </tr>
+                                <tr onclick="window.location.href = '/contact'">
+                                    <td class="nu-idx">3</td>
+                                    <td class="nu-file"><a href="/contact" class="nu-link">Contact</a></td>
+                                    <td class="nu-path-cell">/contact</td>
+                                    <td><span class="nu-badge warn-badge">wip</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="prompt-block">
+                    <div class="nu-prompt">
+                        <span class="nu-user">julius</span><span class="nu-at">@</span><span class="nu-host">localhost</span>
+                        <span class="nu-path"> /home/julius/projects</span>
+                        <span class="nu-git"> (main)</span>
+                    </div>
+                    <p class="line"><span class="nu-arrow">〉</span>
+                            <!-- <span class="cmd">exit</span> -->
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
