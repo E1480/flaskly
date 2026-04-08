@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Messages</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            min-height: 100%;
+            background: #181825;
+            font-family: 'JetBrains Mono', monospace;
+            color: #cdd6f4;
+        }
+
+        .wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #1e1e2e;
+            border-right: 1px solid #313244;
+            padding: 20px 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-item {
+            padding: 12px 20px;
+            color: #a6adc8;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .sidebar-item:hover {
+            color: #cdd6f4;
+            border-left-color: #cba6f7;
+            background: #313244;
+        }
+
+        .sidebar-item.active {
+            color: #cba6f7;
+            border-left-color: #cba6f7;
+            background: #313244;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+            border-bottom: 1px solid #313244;
+            font-size: 13px;
+            margin-left: 200px;
+        }
+
+        .topbar-title { color: #7f849c; }
+        .topbar-title span { color: #cdd6f4; font-weight: 500; }
+
+        .topbar-logout {
+            color: #f38ba8;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .topbar-logout:hover { text-decoration: underline; }
+
+        .container {
+            padding: 2rem 24px;
+            max-width: 860px;
+            margin-left: 200px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            color: #6c7086;
+            margin-bottom: 1rem;
+            text-transform: lowercase;
+        }
+
+        .section-title span {
+            color: #cba6f7;
+        }
+
+        .empty {
+            font-size: 13px;
+            color: #45475a;
+            padding: 1rem 0;
+        }
+
+        .message-card {
+            border: 1px solid #313244;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            background: #1e1e2e;
+        }
+
+        .message-card:hover {
+            border-color: #45475a;
+        }
+
+        .msg-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 12px;
+            color: #6c7086;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .msg-meta .name  { color: #89b4fa; font-weight: 500; }
+        .msg-meta .email { color: #a6adc8; }
+        .msg-meta .time  { color: #45475a; margin-left: auto; }
+
+        .msg-subject {
+            font-size: 13px;
+            color: #cba6f7;
+            margin-bottom: 8px;
+        }
+
+        .msg-body {
+            font-size: 13px;
+            color: #cdd6f4;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            border-left: 2px solid #313244;
+            padding-left: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+         <aside class="sidebar">
+            <a class="sidebar-item" data-section="Messages" href="#s=Messages" onclick="navigate(event, 'Messages')">Messages</a>
+            <a class="sidebar-item" data-section="Settings" href="#s=Settings" onclick="navigate(event, 'Settings')">Settings</a>
+            <a class="sidebar-item" data-section="Users" href="#s=Users" onclick="navigate(event, 'Users')">Users</a>
+            <a class="sidebar-item" data-section="Analytics" href="#s=Analytics" onclick="navigate(event, 'Analytics')">Analytics</a>
+        </aside>
+
+        <script>
+            function getSectionFromHash() {
+                const hash = window.location.hash.slice(1);
+                const params = new URLSearchParams(hash);
+                return params.get('s') || 'Messages';
+            }
+
+            function updateActiveSection(section) {
+                document.querySelectorAll('.sidebar-item').forEach(item => {
+                    item.classList.toggle('active', item.dataset.section === section);
+                });
+
+                document.querySelectorAll('.section-page').forEach(sectionEl => {
+                    sectionEl.style.display = sectionEl.dataset.section === section ? 'block' : 'none';
+                });
+            }
+
+            function navigate(event, section) {
+                event.preventDefault();
+                window.location.hash = `s=${section}`;
+                updateActiveSection(section);
+            }
+
+            window.addEventListener('hashchange', () => {
+                updateActiveSection(getSectionFromHash());
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                updateActiveSection(getSectionFromHash());
+            });
+        </script>
+
+        <main style="flex: 1;">
+            <div class="topbar">
+                <p class="topbar-title">julius.dev / <span>admin</span></p>
+                <a class="topbar-logout" href="/9699f64f7f06427b1d4d1679b195a5b898eda467/admin/logout">logout</a>
+            </div>
+
+            <div class="container">
+                {% block content %}{% endblock %}
+
+                <div class="section-page" data-section="Settings" style="display:none;">
+                    <p class="section-title">admin / <span>settings</span></p>
+                    <div class="empty">Settings content goes here.</div>
+                </div>
+
+                <div class="section-page" data-section="Users" style="display:none;">
+                    <p class="section-title">admin / <span>users</span></p>
+                    <div class="empty">Users content goes here.</div>
+                </div>
+
+                <div class="section-page" data-section="Analytics" style="display:none;">
+                    <p class="section-title">admin / <span>analytics</span></p>
+                    <div class="empty">Analytics content goes here.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

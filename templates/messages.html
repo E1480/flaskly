@@ -1,0 +1,32 @@
+{% extends "9699f64f7f06427b1d4d1679b195a5b898eda467.html" %}
+
+{% block content %}
+<div class="section-page" data-section="Messages">
+
+<p class="section-title">messages — <span>{{ messages|length }}</span> total</p>
+
+                {% if messages %}
+                    {% for msg in messages|reverse %}
+                    <div class="message-card">
+                        <div class="msg-meta">
+                            <span class="name">{{ msg[1] }}</span>
+                            <span class="email">{{ msg[2] }}</span>
+                            <span class="time">{{ msg[5] }}</span>
+                        </div>
+                        {% if msg[3] %}
+                        <p class="msg-subject">{{ msg[3] }}</p>
+                        {% endif %}
+                        <p class="msg-body">{{ msg[4] }}</p>
+                        <div>
+                            <form action="/9699f64f7f06427b1d4d1679b195a5b898eda467/admin/messages/delete" method="post">
+                                <input type="hidden" name="message_id" value="{{ msg[0] }}">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="empty">no messages yet.</p>
+                {% endif %}
+</div>
+{% endblock %}

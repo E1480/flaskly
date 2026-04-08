@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            background: #181825;
+            font-family: 'JetBrains Mono', monospace;
+            color: #cdd6f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 360px;
+            padding: 2rem;
+        }
+
+        .login-title {
+            font-size: 14px;
+            color: #6c7086;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #313244;
+            padding-bottom: 1rem;
+        }
+
+        .login-title span {
+            color: #cdd6f4;
+            font-weight: 500;
+        }
+
+        .field {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: #7f849c;
+            margin-bottom: 6px;
+        }
+
+        input {
+            width: 100%;
+            background: #1e1e2e;
+            border: 1px solid #313244;
+            border-radius: 6px;
+            color: #cdd6f4;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            padding: 10px 12px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #6c7086;
+        }
+
+        input::placeholder {
+            color: #45475a;
+        }
+
+        .error {
+            font-size: 12px;
+            color: #f38ba8;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            width: 100%;
+            background: #1e1e2e;
+            border: 1px solid #45475a;
+            border-radius: 6px;
+            color: #cdd6f4;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        button:hover {
+            border-color: #6c7086;
+            background: #313244;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <p class="login-title">julius.dev / <span>admin login</span></p>
+
+        <form method="POST" action="/9699f64f7f06427b1d4d1679b195a5b898eda467/admin/login">
+            <div class="field">
+                <label for="username">username</label>
+                <input type="text" id="username" name="username" placeholder="username" autofocus required />
+            </div>
+            <div class="field">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" placeholder="password" required />
+            </div>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <p class="error">{{ messages[0] }}</p>
+                {% endif %}
+            {% endwith %}
+
+            <button type="submit">login</button>
+        </form>
+    </div>
+
+</body>
+</html>
